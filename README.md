@@ -22,7 +22,7 @@ Matplotlib for Data visualizations <br>
 Pandas / NumPy	for  Data manipulation & math <br>
 scikit-learn  for 	Scaling and preprocessing <br> <br>
 
-**🗂 Project Structure**
+**🗂 Project Structure** <br>
 📁 saved_models/  <br>
    ├── stock_model.h5         # Trained LSTM model  <br>
    └── scaler.pkl             # Saved MinMaxScaler  <br>
