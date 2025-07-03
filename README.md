@@ -1,4 +1,4 @@
-📈 Stock Price Prediction Dashboard
+📈 Stock Price Prediction Dashboard <br>
 A machine learning-powered web application that predicts future stock prices using deep learning (LSTM Neural Network) and displays live market indices like NIFTY 50 and SENSEX. Built with Streamlit, TensorFlow, yfinance, and Matplotlib.
 
 🚀 Features
