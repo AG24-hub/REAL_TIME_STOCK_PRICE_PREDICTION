@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints
+*.pyo
+*.pyd
+*.pkl
+*.joblib
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Virtual environment
+.env/
+.venv/
+env/
+venv/
+
+# Streamlit logs and cache
+.streamlit/config.toml
+.streamlit/credentials.toml
+.cache/
+*.log
+
+# Model and scaler backups
+saved_models/
+*.h5
+*.pkl
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Mac/Linux hidden files
+*.swp
+*~
+
+# Output files
+*.csv
+*.xlsx
