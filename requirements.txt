@@ -3,6 +3,6 @@ pandas==2.2.2
 numpy==1.26.4
 matplotlib==3.9.0
 yfinance==0.2.40
-tensorflow==2.10
+tensorflow==2.12
 scikit-learn==1.4.2
 joblib==1.4.2
