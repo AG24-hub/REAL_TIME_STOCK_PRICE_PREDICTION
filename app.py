@@ -26,6 +26,7 @@ model = load_model("saved_models/stock_model.h5")
 scaler = joblib.load("saved_models/scaler.pkl")
 
 # ----- Function to Fetch Live Index Data -----
+@st.cache_data(ttl=600)
 def get_live_index(ticker):
   try:
     df = yf.Ticker(ticker).history(period="1d", interval="1d")
