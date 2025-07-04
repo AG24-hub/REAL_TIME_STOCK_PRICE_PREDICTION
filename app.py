@@ -17,7 +17,7 @@ st.title("📈 Stock Price Prediction Dashboard")
 st.caption(f"📅 Today: {datetime.datetime.now().strftime('%A, %d %B %Y')}")
 
 # ----- Sidebar Controls -----
-stock_symbol = st.sidebar.selectbox("Choose a stock:", ["RELIANCE.NS", "TCS.NS", "INFY.NS", "SBIN.NS", "ICICIBANK.NS"])
+stock_symbol = st.sidebar.selectbox("Choose a stock:", ["APPL", "RELIANCE.NS", "TCS.NS", "INFY.NS", "SBIN.NS", "ICICIBANK.NS"])
 predict_days = st.sidebar.slider("Days to Predict", min_value=30, max_value=100, value=60, step=10)
 
 # ----- Load Saved Model and Scaler -----
