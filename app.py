@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import pandas_datareader.data as web
 import numpy as np
 import matplotlib.pyplot as plt
 import yfinance as yf
@@ -31,7 +30,7 @@ scaler = joblib.load("saved_models/scaler.pkl")
 # ----- Function to Fetch Live Index Data -----
 def get_live_index(ticker):
   try:
-    df = yf.Ticker(ticker).history(period="1d", interval="1m")
+    df = yf.Ticker(ticker).history(period="1d", interval="1d")
     if df.empty: 
       st.warning(f"⚠️ No data found for {ticker}. It might be temporarily unavailable or delisted.")
       return None, None
@@ -57,7 +56,7 @@ if sensex:
 st.subheader(f"📈 Historical Data for {stock_symbol}")
 end_date = datetime.datetime.now()
 start_date = end_date - datetime.timedelta(days=365*10)
-data = yf.Ticker(stock_symbol).history(start=start_date, end=end_date)
+data = yf.download(stock_symbol, start=start_date, end=end_date, progress=False)
 if data.empty:
   st.error("❌ Failed to load stock data.")
   st.stop()
@@ -122,7 +121,7 @@ future_predictions_60_real = scaler.inverse_transform(predictions)
 
 # ----- Create Prediction Date Range -----
 last_date = data.index[-1]
-future_dates = pd.bdate_range(start=last_date+pd.Timedelta(days=1), periods=60)
+future_dates = pd.bdate_range(start=last_date+pd.Timedelta(days=1), periods=predict_days)
 
 prediction_df = pd.DataFrame({
     'Date': future_dates,
