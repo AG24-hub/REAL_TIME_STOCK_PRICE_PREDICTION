@@ -7,6 +7,8 @@ import datetime
 import joblib
 from tensorflow.keras.models import load_model
 
+yf.utils.enable_debug_mode()
+
 # ----- Page Config -----
 st.set_page_config(page_title='Stock Price Prediction App', layout='wide')
 
