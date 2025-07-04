@@ -26,12 +26,17 @@ scaler = joblib.load("saved_models/scaler.pkl")
 
 # ----- Function to Fetch Live Index Data -----
 def get_live_index(ticker):
-  df = yf.download(ticker, period="1d", interval="1m")
-  if df.empty:
+  try:
+    df = yf.download(ticker, period="1d", interval="1m", progress=False)
+      if df.empty:
+        st.warning(f"⚠️ No data found for {ticker}. It might be temporarily unavailable or delisted.")
+        return None, None
+      current = df['Close'].iloc[-1]
+      change = ((df['Close'].iloc[-1] - df['Open'].iloc[0]) / df['Open'].iloc[0]) * 100
+      return current, change
+  except Exception as e:
+    st.warning(f"⚠️ Error fetching data for {ticker}: {e}")
     return None, None
-  current = df['Close'].iloc[-1]
-  change = ((df['Close'].iloc[-1] - df['Open'].iloc[0]) / df['Open'].iloc[0]) * 100
-  return current, change
 
 # ----- Display Live Indices -----
 st.subheader("📊 Market Indices (Live)")
