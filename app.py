@@ -20,7 +20,7 @@ st.caption(f"📅 Today: {datetime.datetime.now().strftime('%A, %d %B %Y')}")
 
 # ----- Sidebar Controls -----
 stock_symbol = st.sidebar.selectbox("Choose a stock:", ["AAPL", "RELIANCE.NS", "TCS.NS", "INFY.NS", "SBIN.NS", "ICICIBANK.NS"])
-predict_days = st.sidebar.slider("Days to Predict", min_value=30, max_value=100, value=60, step=10)
+predict_days = st.sidebar.slider("Days to Predict", min_value=10, max_value=60, value=30, step=5)
 
 
 # ----- Load Saved Model and Scaler -----
