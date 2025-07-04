@@ -50,7 +50,6 @@ if sensex:
     col2.metric("🔵 SENSEX", f"{sensex:.2f} ₹", f"{sensex_chg:.2f}%")
 
 # ----- Fetch Historical Data -----
-'''
 st.subheader(f"📈 Historical Data for {stock_symbol}")
 end_date = datetime.datetime.now()
 start_date = end_date - datetime.timedelta(days=365*10)
@@ -58,7 +57,6 @@ data = yf.download(stock_symbol, start=start_date, end=end_date, auto_adjust=Tru
 if data.empty:
   st.error("❌ Failed to load stock data.")
   st.stop()
-'''
 
 # ----- Prepare Data -----
 df = data[['Close']].copy()
