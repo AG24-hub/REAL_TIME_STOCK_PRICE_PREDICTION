@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import pandas_datareader.data as web
 import numpy as np
 import matplotlib.pyplot as plt
 import yfinance as yf
@@ -56,7 +57,7 @@ if sensex:
 st.subheader(f"📈 Historical Data for {stock_symbol}")
 end_date = datetime.datetime.now()
 start_date = end_date - datetime.timedelta(days=365*10)
-data = yf.download(stock_symbol, start=start_date, end=end_date, auto_adjust=True)
+data = web.DataReader(stock_symbol, start=start_date, end=end_date, auto_adjust=True)
 if data.empty:
   st.error("❌ Failed to load stock data.")
   st.stop()
