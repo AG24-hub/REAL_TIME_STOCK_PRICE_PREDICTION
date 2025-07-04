@@ -31,7 +31,7 @@ scaler = joblib.load("saved_models/scaler.pkl")
 # ----- Function to Fetch Live Index Data -----
 def get_live_index(ticker):
   try:
-    df = yf.download(ticker, period="1d", interval="1m", progress=False)
+    df = web.DataReader(ticker, period="1d", interval="1m")
     if df.empty: 
       st.warning(f"⚠️ No data found for {ticker}. It might be temporarily unavailable or delisted.")
       return None, None
@@ -57,7 +57,7 @@ if sensex:
 st.subheader(f"📈 Historical Data for {stock_symbol}")
 end_date = datetime.datetime.now()
 start_date = end_date - datetime.timedelta(days=365*10)
-data = web.DataReader(stock_symbol, start=start_date, end=end_date, auto_adjust=True)
+data = web.DataReader(stock_symbol, start=start_date, end=end_date)
 if data.empty:
   st.error("❌ Failed to load stock data.")
   st.stop()
