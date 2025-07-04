@@ -12,4 +12,5 @@ secondaryBackgroundColor="#f0f2f6"
 textColor="#000000"
 
 [general]
+python_version = "3.10"
 target = "app.py"
